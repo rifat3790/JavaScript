@@ -1,1 +1,96 @@
+function cubeNumber(number){
+    if(typeof number !=='number'){
+    return 'This is not a number. Please provide a number.';
+    }
+    else{
+    if(number < 0){
+    return 'Please enter positive number';
+    }
+    else{
+    const result = number * number * number;
+    return result;
+    }
+    }
+    }
+    function matchFinder(string1, string2){
+    if(typeof string1 !=='string' || typeof string2 !== 'string'){
+    return 'This is not string, please enter string.';
+    }
+    else{
+    if(string1.includes(string2)){
+    return true;
+    }
+    else{
+    return false;
+    }
+    }
+    }
+    function sortMaker(arr){
+    if(!Array.isArray(arr)){
+    return "This is not array. please enter the array."
+    }
+    else if(arr[0]<0 || arr[1]<0){
+    return "Invalid Input";
+    }
+    else if(arr[0] < arr[1]){
+    let temp = arr[0];
+    arr[0] = arr[1];
+    arr[1] = temp;
+    return arr;
+    }
+    else if(arr[0] === arr[1]){
+    return "equal";
+    }
+    else{
+    return arr;
+    }
+    }
+    function findAddress(obj) {
+    if(typeof obj !== "object"){
+    return "This is not object. Please enter valid object."
+    }
+    else{
+    const street = obj.street || "__";
+    const house = obj.house || "__";
+    const society = obj.society || "__";
+    return street+", "+house+", "+society;
+    }
+    }
+    function canPay(changeArray, totalDue){
+    let sum = 0;
+    if(changeArray.length === 0){
+    return "This is empty array. Please provide valid array elements."
+    }
+    else{
+    for(let i=0;i<changeArray.length; i++){
+    sum = sum + changeArray[i];
+    }
+    if(sum >= totalDue){
+    return true;
+    }
+    else{
+    return false;
+    }
+    }
+    }
 
+    const address1 = { street: 10, house: "15A", society: "Earth Perfect", phn:"0195232" };
+console.log(findAddress(address1)); 
+
+const address2 = { street: 10, society: "Earth Perfect" };
+console.log(findAddress(address2));
+
+const address3 = { street: 10 };
+console.log(findAddress(address3));
+
+const number = cubeNumber(4);
+console.log(number);
+
+const n= matchFinder("pet",'pet');
+console.log(n);
+
+const array = [10,20];
+console.log(sortMaker(array));
+
+const arr = [1, 5, 5];
+console.log(canPay(arr, 10));
